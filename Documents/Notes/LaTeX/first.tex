@@ -1,0 +1,72 @@
+\documentclass[a4paper]{article}
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{hyphenat}
+%\usepackage{microtype}
+\usepackage{blindtext}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage[ngerman]{babel}
+
+\DeclareMathOperator{\Grad}{Grad}
+\DeclareMathOperator{\minpol}{minpol}
+\newcommand{\zps}{\zeta_{p^2}}
+\newcommand{\zp}{\zeta_{p}}
+
+
+
+\begin{document}
+	\title{\"Ubungsblatt 4 - Algebra 1}
+	\author{Jovan Petrov}
+	\maketitle
+	
+	\vspace{3em}
+	
+	\section*{\underline{Aufgabe 3}}
+	
+	\begin{enumerate}
+	\item $\frac{x^{p^2}-1}{x-1} \in \mathbb{Q}[x]$ ist nicht irreduzibel
+	
+	
+	\begin{proof}
+	\begin{align*}
+  	\frac{x^{p^2}-1}{x-1} = \frac{(x^{p})^p-1}{x-1} = \frac{(x^p-1)\left(\sum_{k=0}^{p-1} x^{pk}\right)}{x-1} = \left(\sum_{k=0}^{p-1} x^k\right)\left(\sum_{k=0}^{p-1} x^{pk}\right)
+	\end{align*}
+	
+	\noindent Mit $r(x):=\sum_{k=0}^{p-1} x^k$ und $s(x):=\sum_{k=0}^{p-1} x^{pk}$, ist $\frac{x^{p^2}-1}{x-1} = r(x)s(x)$,
+	$r(x),s(x) \in \mathbb{Q}[x]$, $\Grad r = p-1 > 0, \Grad s = p^2-p > 0$ reduzibel.
+	
+	\end{proof}
+	
+	\item $\Phi_{p^2} := \minpol_{\zeta_{p^2}} = \; ?$
+	
+	\begin{proof}
+	Wir zeigen $\minpol_{\zeta_{p^2}} = s(x):= \sum_{k=0}^{p-1} x^{pk}$. Es gilt
+	
+	\begin{align*}
+  	s(\zps) =\sum_{k=0}^{p-1} {\zps}^{pk} = \sum_{k=0}^{p-1} e^{i\frac{2\pi}{p}k} = \sum_{k=0}^{p-1} \zp^k = \frac{\zp^p-1}{\zp-1} = 0
+	\end{align*}
+
+	d.h. das Minimalpolynom von $\zps$ teilt $s(x)$. Wir zeigen noch, dass $s(x)$ irreduzibel in $\mathbb{Q}$ ist. 
+	Wir betrachten zun\"achst $s'(y)=s(y+1)=\frac{(y+1)^{p^2}-1}{(y+1)^p-1}$. Offensichtlich ist $s$ g.d. irreduzibel wenn $s'$ irreduzibel ist.
+	Modulo $p$ gilt $s'(y) = \frac{((y+1)^{p})^p-1}{(y+1)^p-1} = \frac{(y^p+1)^p-1}{(y^p+1)-1} = \frac{y^{p^2}}{y^p} = y^{p^2-p} \in \mathbb{F}_p[x]$
+	Da $\Grad s' = \Grad s = p^2-p$ sind also alle Koeffizienten aus dem f\"uhrenden Koeffizient durch $p$ teilbar. Ferner gilt
+
+	\begin{align*}
+		s'(y) = \sum_{k=0}^{p-1}(y+1)^{pk} = \sum_{k=0}^{p-1} \left(1+y\sum_{j=1}^{pk} {pk \choose j}y^{j-1} \right) = 
+		p + y\sum_{k=0}^{p-1}\sum_{j=0}^{pk-1} {pk \choose j+1}y^{j} 
+	\end{align*}
+
+
+		d.h. der konstante Term von $s'(y)$ ist $s_0 = p$. Nach dem Eisensteinkriterium ist $s'$ und damit $s$ in $\mathbb{Z}[x]$ (folglich auch in $\mathbb{Q}[x]$) irreduzibel.
+
+	\end{proof}
+	
+	$$\left[ \sum_{k=0}^{\infty} \frac{k!}{k^k}\right]$$
+
+	\end{enumerate}
+
+
+\end{document}
