@@ -1,0 +1,8 @@
+call plug#begin('~/.vim/plugged')
+
+Plug 'lervag/vimtex'
+Plug 'vim-scripts/AutoComplPop'
+Plug 'sirver/ultisnips'
+
+
+call plug#end()
